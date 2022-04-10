@@ -47,11 +47,12 @@
 		// SO... What ever we pick Earth's speed to be as our base:
 		// Multiply that by above values to get speed if it were the other planets
 
-		const speed = 3.5; // base speed for Earth
-		const speed_sun = speed * 27.9;
-		const speed_mercury = speed * 0.378;
-		const speed_venus = speed * 0.91;
-		const speed_moon = speed * 0.167;
+		const speed_earth = 3.5; // base speed for Earth
+		const speed_sun = speed_earth * 27.9;
+		const speed_mercury = speed_earth * 0.378;
+		const speed_venus = speed_earth * 0.91;
+		const speed_moon = speed_earth * 0.167;
+		const speed = [speed_earth, speed_sun, speed_mercury, speed_venus, speed_moon];
 		const height = 3;
 		const offset = 0.5;
 
@@ -212,7 +213,8 @@
 				const ball = objects[ i ];
 
 				const previousHeight = ball.position.y;
-				ball.position.y = Math.abs( Math.sin( i * offset + ( time * speed ) ) * height );
+				
+				ball.position.y = Math.abs( Math.sin( i * offset + ( time * speed[i] ) ) * height );
 
 				if ( ball.position.y < previousHeight ) {
 
