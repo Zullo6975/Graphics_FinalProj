@@ -38,7 +38,20 @@
 
 		const objects = [];
 
-		const speed = 4.0;
+		// Speed of a free falling object on Earth is 9.8 m/s^2
+		// Take Earth's gravity to be 1x
+		// Sun = 27.9 x Earth
+		// Mercury = 0.378 x Earth
+		// Venus = 0.91 x Earth 
+		// Moon = 0.167 x Earth
+		// SO... What ever we pick Earth's speed to be as our base:
+		// Multiply that by above values to get speed if it were the other planets
+
+		const speed = 3.5; // base speed for Earth
+		const speed_sun = speed * 27.9;
+		const speed_mercury = speed * 0.378;
+		const speed_venus = speed * 0.91;
+		const speed_moon = speed * 0.167;
 		const height = 3;
 		const offset = 0.5;
 
