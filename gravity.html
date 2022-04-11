@@ -131,8 +131,8 @@
 
 			materials.push( new THREE.MeshLambertMaterial( { map: texture, transparent: true } ) );
 			materials.push( new THREE.MeshLambertMaterial( { color: 0xdddddd } ) );
-			materials.push( new THREE.MeshPhongMaterial( { color: 0xdddddd, specular: 0x009900, shininess: 30, flatShading: true } ) );
-			materials.push( new THREE.MeshNormalMaterial() );
+			materials.push( new THREE.MeshLambertMaterial( { color: 0x666666, emissive: 0xff0000 } ) );
+		  materials.push( new THREE.MeshNormalMaterial( { flatShading: true } ) );
 			materials.push( new THREE.MeshBasicMaterial( { color: 0xffaa00, transparent: true, blending: THREE.AdditiveBlending } ) );
 
 			// objects
