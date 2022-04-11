@@ -54,7 +54,7 @@
 		const speed_venus = speed_earth * 0.91;
 		const speed_moon = speed_earth * 0.167;
 		const speeds = [speed_earth, speed_mercury, speed_venus, speed_sun, speed_moon];
-		const height = 3;
+		const height = 6;
 		const offset = 0.5;
 
 		let settings;
@@ -234,12 +234,12 @@
 			// skybox
 
 			const cubeTextureLoader = new THREE.CubeTextureLoader();
-			cubeTextureLoader.setPath( 'textures/cube/Park2/' );
+			cubeTextureLoader.setPath( 'textures/cube/MilkyWay/' );
 
 			const cubeTexture = cubeTextureLoader.load( [
-				'posx.jpg', 'negx.jpg',
-				'posy.jpg', 'negy.jpg',
-				'posz.jpg', 'negz.jpg'
+				'dark-s_px.jpg', 'dark-s_nx.jpg',
+				'dark-s_py.jpg', 'dark-s_ny.jpg',
+				'dark-s_pz.jpg', 'dark-s_nz.jpg'
 			] );
 
 			scene.background = cubeTexture;
