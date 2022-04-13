@@ -33,6 +33,7 @@
 		import * as THREE from 'three';
 
 		import { OrbitControls } from './jsm/controls/OrbitControls.js';
+		// import { HDRCubeTextureLoader } from './jsm/loaders/HDRCubeTextureLoader.js';
 		import { GUI } from './jsm/libs/lil-gui.module.min.js';
 
 		let scene, camera, renderer, clock;
@@ -129,12 +130,42 @@
 			const texture = new THREE.Texture( generateTexture() );
 			texture.needsUpdate = true;
 
-			materials.push( new THREE.MeshLambertMaterial( { map: texture, transparent: true } ) );
-			materials.push( new THREE.MeshLambertMaterial( { color: 0xdddddd } ) );
-			materials.push( new THREE.MeshLambertMaterial( { color: 0x666666, emissive: 0xff0000 } ) );
-		  materials.push( new THREE.MeshNormalMaterial( { flatShading: true } ) );
-			materials.push( new THREE.MeshBasicMaterial( { color: 0xffaa00, transparent: true, blending: THREE.AdditiveBlending } ) );
+			// new HDRCubeTextureLoader()
+			// 		.setPath( 'textures/cube/pisaHDR/' )
+			// 		.load( [ 'px.hdr', 'nx.hdr', 'py.hdr', 'ny.hdr', 'pz.hdr', 'nz.hdr' ],
+			// 			function ( texture ) {
+			// 				const geometry = new THREE.SphereGeometry( 80, 64, 32 );
+			// 				const textureLoader = new THREE.TextureLoader();
+			// 				const diffuse = textureLoader.load( 'textures/carbon/Carbon.png' );
+			// 				diffuse.encoding = THREE.sRGBEncoding;
+			// 				diffuse.wrapS = THREE.RepeatWrapping;
+			// 				diffuse.wrapT = THREE.RepeatWrapping;
+			// 				diffuse.repeat.x = 10;
+			// 				diffuse.repeat.y = 10;
+			// 				const normalMap4 = textureLoader.load( 'textures/golfball.jpg' );
+			// 				const clearcoatNormaMap = textureLoader.load( 'textures/pbr/Scratched_gold/Scratched_gold_01_1K_Normal.png' );
+			// 				materials.push( new THREE.MeshPhysicalMaterial( {
+			// 					metalness: 0.0,
+			// 					roughness: 0.1,
+			// 					clearcoat: 1.0,
+			// 					normalMap: normalMap4,
+			// 					clearcoatNormalMap: clearcoatNormaMap,
 
+			// 					// y scale is negated to compensate for normal map handedness.
+			// 					clearcoatNormalScale: new THREE.Vector2( 2.0, - 2.0 )
+			// 				} ));
+			// 				mesh = new THREE.Mesh( geometry, materials[0] );
+			// 				mesh.position.x = - 100;
+			// 				mesh.position.y = - 100;
+			// 				group.add( mesh );
+			// 			}
+			// 		);
+
+			materials.push( new THREE.MeshBasicMaterial( { color: 0xffaa00, wireframe: true } ) );
+			materials.push( new THREE.MeshPhongMaterial( { color: 0xdddddd, specular: 0x009900, shininess: 30, map: texture, transparent: true } ) );
+			materials.push( new THREE.MeshLambertMaterial( { color: 0xa61c00, wireframe: true } ) );
+			materials.push( new THREE.MeshNormalMaterial( { flatShading: true } ) );
+			materials.push( new THREE.MeshBasicMaterial( { color: 0x33c1ff, transparent: true, blending: THREE.AdditiveBlending } ) );
 			// objects
 
 			const count = 5;
