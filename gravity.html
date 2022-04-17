@@ -523,9 +523,11 @@
 				} else {
 					if ( ball.userData.down === true ) {
 						// ball changed direction from down to up
-						const audio = ball.children[ 0 ];
-						audio.play(); // play audio with perfect timing when ball hits the surface
-						ball.userData.down = false;
+						if (ball.visible == true){
+							const audio = ball.children[ 0 ];
+							audio.play(); // play audio with perfect timing when ball hits the surface
+							ball.userData.down = false;
+						}
 					}
 				}
 			}
