@@ -54,7 +54,7 @@
 		const speed_mercury = speed_earth * 0.378;
 		const speed_venus = speed_earth * 0.91;
 		const speed_moon = speed_earth * 0.167;
-		const speeds = [speed_earth, speed_mercury, speed_venus, speed_sun, speed_moon];
+		const speeds = [speed_earth, speed_mercury, speed_venus, speed_sun, speed_moon, speed_earth, speed_mercury, speed_venus, speed_sun, speed_moon];
 		const height = 6;
 		const offset = 0.5;
 
@@ -65,6 +65,11 @@
 		let ballm;
 		let ballmo;
 		let balls;
+		let ballEno;
+		let ballVno;
+		let ballMno;
+		let ballMono;
+		let ballSno;
 
 		const startButton = document.getElementById( 'startButton' );
 		startButton.addEventListener( 'click', init );
@@ -166,6 +171,12 @@
 			materials.push( new THREE.MeshLambertMaterial( { color: 0xa61c00, wireframe: true } ) );
 			materials.push( new THREE.MeshNormalMaterial( { flatShading: true } ) );
 			materials.push( new THREE.MeshBasicMaterial( { color: 0x33c1ff, transparent: true, blending: THREE.AdditiveBlending } ) );
+
+			materials.push( new THREE.MeshLambertMaterial( { color: 0xcccccc } ));
+			materials.push( new THREE.MeshLambertMaterial( { color: 0xcccccc } ));
+			materials.push( new THREE.MeshLambertMaterial( { color: 0xcccccc } ));
+			materials.push( new THREE.MeshLambertMaterial( { color: 0xcccccc } ));
+			materials.push( new THREE.MeshLambertMaterial( { color: 0xcccccc } ));
 			// objects
 
 			const count = 5;
@@ -254,6 +265,66 @@
 					scene.add( ballmo );
 					objects.push( ballmo );
 
+					ballEno = new THREE.Mesh( ballGeometryEarth, materials[5] );
+					ballEno.castShadow = true;
+					ballEno.userData.down = false;
+					ballEno.position.x = radius * Math.cos( earth );
+					ballEno.position.z = radius * Math.sin( earth );
+					const audioEno = new THREE.PositionalAudio( listener );
+					audio.setBuffer( buffer );
+					ballEno.add( audioEno );
+					ballEno.visible = false;
+					scene.add( ballEno );
+					objects.push( ballEno );
+
+					ballMno = new THREE.Mesh( ballGeometryMercury, materials[6] );
+					ballMno.castShadow = true;
+					ballMno.userData.down = false;
+					ballMno.position.x = radius * Math.cos( mercury );
+					ballMno.position.z = radius * Math.sin( mercury );
+					const audioMno = new THREE.PositionalAudio( listener );
+					audio.setBuffer( buffer );
+					ballMno.add( audioMno );
+					ballMno.visible = false;
+					scene.add( ballMno );
+					objects.push( ballMno );
+
+					ballVno = new THREE.Mesh( ballGeometryVenus, materials[7] );
+					ballVno.castShadow = true;
+					ballVno.userData.down = false;
+					ballVno.position.x = radius * Math.cos( venus );
+					ballVno.position.z = radius * Math.sin( venus );
+					const audioVno = new THREE.PositionalAudio( listener );
+					audio.setBuffer( buffer );
+					ballVno.add( audioVno );
+					ballVno.visible = false;
+					scene.add( ballVno );
+					objects.push( ballVno );
+
+					ballSno = new THREE.Mesh( ballGeometrySun, materials[8] );
+					ballSno.castShadow = true;
+					ballSno.userData.down = false;
+					ballSno.position.x = radius * Math.cos( sun );
+					ballSno.position.z = radius * Math.sin( sun );
+					const audioSno = new THREE.PositionalAudio( listener );
+					audios.setBuffer( buffer );
+					ballSno.add( audioSno );
+					ballSno.visible = false;
+					scene.add( ballSno );
+					objects.push( ballSno );
+
+					ballMono = new THREE.Mesh( ballGeometryMoon, materials[9] );
+					ballMono.castShadow = true;
+					ballMono.userData.down = false;
+					ballMono.position.x = radius * Math.cos( moon );
+					ballMono.position.z = radius * Math.sin( moon );
+					const audioMono = new THREE.PositionalAudio( listener );
+					audiomo.setBuffer( buffer );
+					ballMono.add( audioMono );
+					ballMono.visible = false;
+					scene.add( ballMono );
+					objects.push( ballMono );
+
 				//}
 
 				createPanel();
@@ -307,8 +378,12 @@
 				'show mercury': false,
 				'show venus': false,
 				'show sun': false,
-				'show moon': false
-
+				'show moon': false,
+				'show earth no texture': false,
+				'show mercury no texture': false,
+				'show venus no texture': false,
+				'show sun no texture': false,
+				'show moon no texture': false
 			};
 
 			folder1.add( settings, 'show earth' ).onChange( showEarth );
@@ -316,6 +391,11 @@
 			folder1.add( settings, 'show venus' ).onChange( showVenus );
 			folder1.add( settings, 'show sun' ).onChange( showSun );
 			folder1.add( settings, 'show moon' ).onChange( showMoon );
+			folder1.add( settings, 'show earth no texture' ).onChange( showEarthno );
+			folder1.add( settings, 'show mercury no texture' ).onChange( showMercuryno );
+			folder1.add( settings, 'show venus no texture' ).onChange( showVenusno );
+			folder1.add( settings, 'show sun no texture' ).onChange( showSunno );
+			folder1.add( settings, 'show moon no texture' ).onChange( showMoonno );
 
 			folder1.open();
 		}
@@ -347,6 +427,36 @@
 		function showMoon( visibility ) {
 
 			ballmo.visible = visibility;
+
+		}
+		
+		function showEarthno( visibility ) {
+
+			ballEno.visible = visibility;
+
+		}
+
+		function showMercuryno( visibility ) {
+
+			ballMno.visible = visibility;
+
+		}
+
+		function showVenusno( visibility ) {
+
+			ballVno.visible = visibility;
+
+		}
+
+		function showSunno( visibility ) {
+
+			ballSno.visible = visibility;
+
+		}
+
+		function showMoonno( visibility ) {
+
+			ballMono.visible = visibility;
 
 		}
 
