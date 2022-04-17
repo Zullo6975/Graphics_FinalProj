@@ -271,7 +271,7 @@
 					ballEno.position.x = radius * Math.cos( earth );
 					ballEno.position.z = radius * Math.sin( earth );
 					const audioEno = new THREE.PositionalAudio( listener );
-					audio.setBuffer( buffer );
+					audioEno.setBuffer( buffer );
 					ballEno.add( audioEno );
 					ballEno.visible = false;
 					scene.add( ballEno );
@@ -283,7 +283,7 @@
 					ballMno.position.x = radius * Math.cos( mercury );
 					ballMno.position.z = radius * Math.sin( mercury );
 					const audioMno = new THREE.PositionalAudio( listener );
-					audio.setBuffer( buffer );
+					audioMno.setBuffer( buffer );
 					ballMno.add( audioMno );
 					ballMno.visible = false;
 					scene.add( ballMno );
@@ -295,7 +295,7 @@
 					ballVno.position.x = radius * Math.cos( venus );
 					ballVno.position.z = radius * Math.sin( venus );
 					const audioVno = new THREE.PositionalAudio( listener );
-					audio.setBuffer( buffer );
+					audioVno.setBuffer( buffer );
 					ballVno.add( audioVno );
 					ballVno.visible = false;
 					scene.add( ballVno );
@@ -307,7 +307,7 @@
 					ballSno.position.x = radius * Math.cos( sun );
 					ballSno.position.z = radius * Math.sin( sun );
 					const audioSno = new THREE.PositionalAudio( listener );
-					audios.setBuffer( buffer );
+					audioSno.setBuffer( buffer );
 					ballSno.add( audioSno );
 					ballSno.visible = false;
 					scene.add( ballSno );
@@ -319,7 +319,7 @@
 					ballMono.position.x = radius * Math.cos( moon );
 					ballMono.position.z = radius * Math.sin( moon );
 					const audioMono = new THREE.PositionalAudio( listener );
-					audiomo.setBuffer( buffer );
+					audioMono.setBuffer( buffer );
 					ballMono.add( audioMono );
 					ballMono.visible = false;
 					scene.add( ballMono );
@@ -429,7 +429,7 @@
 			ballmo.visible = visibility;
 
 		}
-		
+
 		function showEarthno( visibility ) {
 
 			ballEno.visible = visibility;
