@@ -14,7 +14,17 @@
 	<div id="container"></div>
 	<div id="info">
 		<a href="https://threejs.org" target="_blank" rel="noopener noreferrer">three.js</a> Gravity Simulator<br/>
-		created by <a href="https://freesound.org/people/michorvath/sounds/269718/" target="_blank" rel="noopener noreferrer">Nick and Mark</a>
+		created by Nick and Mark</a>
+		<p>Information:
+		<button class="earth" data-clipboard-text="1">Earth</button>	
+		<button class="mercury" data-clipboard-text="1">Mercury</button> 
+		<button class="venus" data-clipboard-text="1">Venus</button>	
+		<button class="sun" data-clipboard-text="1">Sun</button> 
+		<button class="moon" data-clipboard-text="1">Moon</button></p>	
+		<!-- <br/><button id="button1">click me</button>
+		<div class="tooltiptext">
+		<span >Tooltip text</span>
+		</div> -->
 	</div>
 
 	<!-- Import maps polyfill -->
@@ -478,6 +488,18 @@
 
 		}
 
+		function setTooltip(btn, message) {
+		btn.tooltip('hide')
+			.attr('data-original-title', message)
+			.tooltip('show');
+		}
+
+		function hideTooltip(btn) {
+		setTimeout(function() {
+			btn.tooltip('hide');
+		}, 5000);
+		}
+
 		function generateTexture() {
 
 			const canvas = document.createElement( 'canvas' );
@@ -537,6 +559,5 @@
 		}
 
 	</script>
-
 </body>
 </html>
