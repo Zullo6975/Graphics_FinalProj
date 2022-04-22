@@ -16,11 +16,11 @@
 		<a href="https://threejs.org" target="_blank" rel="noopener noreferrer">three.js</a> Gravity Simulator<br/>
 		created by Nick and Mark</a>
 		<p>Information:
-		<button class="earth" data-clipboard-text="1">Earth</button>	
-		<button class="mercury" data-clipboard-text="1">Mercury</button> 
-		<button class="venus" data-clipboard-text="1">Venus</button>	
-		<button class="sun" data-clipboard-text="1">Sun</button> 
-		<button class="moon" data-clipboard-text="1">Moon</button></p>	
+		<button class="earth1" data-clipboard-text="1">Earth</button>
+		<button class="mercury1" data-clipboard-text="1">Mercury</button>
+		<button class="venus1" data-clipboard-text="1">Venus</button>
+		<button class="sun1" data-clipboard-text="1">Sun</button>
+		<button class="moon1" data-clipboard-text="1">Moon</button></p>	
 		<!-- <br/><button id="button1">click me</button>
 		<div class="tooltiptext">
 		<span >Tooltip text</span>
@@ -336,6 +336,36 @@
 					objects.push( ballMono );
 
 				//}
+
+				function tempAlert(msg,duration){
+ 					var text = document.createElement("div");
+ 					text.setAttribute("style","position:absolute;top:70%;left:10%;right:40%;font-size:20px;background-color:black;font-family:serif;");
+					text.innerHTML = msg;
+ 					setTimeout(function(){
+  					text.parentNode.removeChild(text);
+ 					},duration);
+ 					document.body.appendChild(text);
+				}
+
+				document.getElementById( 'earth1' ).addEventListener( 'click', function () {
+						tempAlert('Earth: The speed of a free falling object on Earth is 9.8 m/s^2. We took a value for the falling velocity that best represented the standard on Earth (3.5), keeping it to look realistic. For the sizing of the Earth we picked a central value of 0.4.', 4000);
+				} );
+
+				document.getElementById( 'mercury1' ).addEventListener( 'click', function () {
+						tempAlert('Mercury: We know that the gravity on Mercury is 0.378x that of Earth&#39;s, so we took the 3.5 and multiplied it by that coefficient to arrive at our falling speed for Mercury. Size is about half that of Earth&#39;s, so we used 0.2 for that.', 4000);
+				} );
+
+				document.getElementById( 'venus1' ).addEventListener( 'click', function () {
+						tempAlert('Venus: We know that the gravity on Venus is 0.91x that of Earth&#39;s, so we took the 3.5 and multiplied it by that coefficient to arrive at our falling speed for Venus. Size is very similar to Earth so we went with 0.3 for it.', 4000);
+				} );
+
+				document.getElementById( 'sun1' ).addEventListener( 'click', function () {
+						tempAlert('Sun: We know that the gravity on the Sun is 27.9x that of Earth&#39;s, so we took the 3.5 and multiplied it by that coefficient to arrive at our falling speed for the Sun. The size of the sun is a little more than triple that of the Earth so we used a value of 1.5 for the Sun&#39;s size.', 4000);
+				} );
+
+				document.getElementById( 'moon1' ).addEventListener( 'click', function () {
+						tempAlert('Moon: We know that the gravity on the Moon is 0.167x that of Earth&#39;s, so we took the 3.5 and multiplied it by that coefficient to arrive at our falling speed for the Moon. The moon is about the quarter of the size of Earth so we used 0.1 for the Moon&#39;s size.', 4000);
+				} );
 
 				createPanel();
 
