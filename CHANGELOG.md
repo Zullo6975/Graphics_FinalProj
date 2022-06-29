@@ -1,0 +1,27 @@
+- Merge branch 'main' of https://github.com/Zullo6975/Graphics_FinalProj
+- try this
+- last try
+- changed
+- Add button info
+- changing floor
+- Button changes
+- change audio more
+- Audio fix
+- added planets without texture
+- Fixing title a bit more
+- changing titles
+- Changing textures
+- Title
+- new textures
+- getting rid of unnecessary files
+- background change/height change
+- Add files via upload
+- Delete gravity.html
+- Add files via upload
+- changing speeds
+- Getting speed values for planets
+- rename
+- Delete unnecessary files
+- Add files via upload
+- initial commit adding blank files
+- Initial commit
